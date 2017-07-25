@@ -1,0 +1,29 @@
+<div class="container">
+    <hr>
+    <div>
+        <div class="col-md-3">
+            <label>Search</label>
+            <input type="text" #search name="search" class="form-control" (keyup)="0" >
+        </div>
+        <table *ngIf="displayAd()?.length > 0">
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+                <tr *ngFor="let prod of displayAd() | search:search.value;let i=index">
+                    <td>{{prod.name}}</td>
+                    <td>{{prod.category}}</td>
+                    <td>{{prod.price}}</td>
+                    <td>{{prod.description}}</td>
+                    <td><button (click)="deleteObject(i)">delete</button>
+                    <button (click)="editObject(i)">edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

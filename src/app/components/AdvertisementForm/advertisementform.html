@@ -1,0 +1,31 @@
+<div class="container">
+    <h3>{{title}}</h3>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Name</label>
+            <input type="text" #name name="name" class="form-control" value="Dominic Savio">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Category</label>
+            <select #category class="form-control">
+            <option *ngFor="let option of options" [value]="option.value">{{option.name}}</option>
+        </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Price</label>
+            <input #price type="text" name="price" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Description</label>
+            <textarea #desc type="text" name="desription" class="form-control"></textarea>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="addProduct(name.value,category.value,price.value,desc.value)">ADD PRODUCT</button>
+</div>
